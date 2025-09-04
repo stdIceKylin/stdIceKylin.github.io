@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="遗产 #2 - 取模不存在了">
+<meta property="og:url" content="http://example.com/2025/08/30/%E9%81%97%E4%BA%A7-2/index.html">
+<meta property="og:site_name" content="Under the Gun">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-08-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-04T12:40:21.917Z">
+<meta property="article:author" content="IceKylin">
+<meta property="article:tag" content="combinatorics">
+<meta property="article:tag" content="polynomial">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2025/08/30/%E9%81%97%E4%BA%A7-2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/08/30/%E9%81%97%E4%BA%A7-2/","path":"2025/08/30/遗产-2/","title":"遗产 #2 - 取模不存在了"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>遗产 #2 - 取模不存在了 | Under the Gun</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Under the Gun</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-Ref"><span class="nav-number">1.</span> <span class="nav-text">Source &amp; Ref.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">2.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">3.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-1"><span class="nav-number">4.</span> <span class="nav-text">Problem 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-to-P1"><span class="nav-number">5.</span> <span class="nav-text">Solution to P1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lemma-1"><span class="nav-number">5.1.</span> <span class="nav-text">Lemma 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lemma-2"><span class="nav-number">5.2.</span> <span class="nav-text">Lemma 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lemma-3"><span class="nav-number">5.3.</span> <span class="nav-text">Lemma 3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lemma-4"><span class="nav-number">5.4.</span> <span class="nav-text">Lemma 4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lemma-5"><span class="nav-number">5.5.</span> <span class="nav-text">Lemma 5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lemma-6"><span class="nav-number">5.6.</span> <span class="nav-text">Lemma 6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-2"><span class="nav-number">6.</span> <span class="nav-text">Problem 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-3"><span class="nav-number">7.</span> <span class="nav-text">Problem 3</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">IceKylin</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/30/%E9%81%97%E4%BA%A7-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IceKylin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Under the Gun">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="遗产 #2 - 取模不存在了 | Under the Gun">
+      <meta itemprop="description" content=" ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          遗产 #2 - 取模不存在了
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-08-30 00:00:00" itemprop="dateCreated datePublished" datetime="2025-08-30T00:00:00+08:00">2025-08-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-09-04 20:40:21" itemprop="dateModified" datetime="2025-09-04T20:40:21+08:00">2025-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%81%97%E4%BA%A7/" itemprop="url" rel="index"><span itemprop="name">遗产</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description"> </div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="Source-Ref">Source &amp; Ref.</h3>
+<p>汪直方的博客，<em>分圆多项式</em>。</p>
+<p>R. P. Stanley and M. F. Yoder, <em>A Study of Varshamov Codes for Asymmetric Channels</em>.</p>
+<h3 id="Description">Description</h3>
+<blockquote>
+<p>对于多项式 $F(x)$，求出 $G(x)=F(x)\bmod(x^m-1)$。</p>
+</blockquote>
+<p>本文将介绍一种技巧，避开多项式取模，得到相对优雅的结果。</p>
+<p>当然，存在一定的局限性。</p>
+<h3 id="Example">Example</h3>
+<p>这有啥用？</p>
+<p>举个例子，对于集合 $S$，有势能函数 $\nu:S\to \mathbb{N}$。</p>
+<p>假设需要计数 $T\subseteq S$，使得 $\sum _{a\in T}\nu(a)=n$。设生成函数为 $F$，答案即为 $[x^n]F(x)$。</p>
+<p>假设需要计数 $T\subseteq S$，使得 $\left(\sum _{a\in T}\nu(a)\right)\bmod m = k$。设生成函数为 $G$，答案即为 $[x^k]G(x)$。</p>
+<p>那么有 $G(x)=F(x)\bmod(x^m-1)$。</p>
+<h3 id="Problem-1">Problem 1</h3>
+<blockquote>
+<p>设集合 $A=[0,nm)\cap\mathbb{Z}$，对 $A$ 的 $s$ 元子集计数，使得元素和模 $m$ 为 $r$。</p>
+</blockquote>
+<h3 id="Solution-to-P1">Solution to P1</h3>
+<p>扔掉取模，容易写出生成函数</p>
+<p>$$F(x,y)=\prod_{i=0}^{nm-1}(1+x^iy)$$</p>
+<p>回到原题，令 $G(x,y)=F(x,y)\bmod(x^m-1)$，则答案为 $[x^ry^s]G(x,y)$。</p>
+<h4 id="Lemma-1">Lemma 1</h4>
+<blockquote>
+<p>设 $\omega_m$ 为 $m$ 次本原单位根（下同），则 $F(\omega_m^k,y)=G(\omega_m^k,y)$。</p>
+</blockquote>
+<h4 id="Lemma-2">Lemma 2</h4>
+<blockquote>
+<p>对于 $k\in\mathbb{Z}$，$\omega_m^k$ 为 $m/\gcd(k,m)$ 次本原单位根。</p>
+<p>i.e. 若 $\omega_m^k$ 为 $d$ 次本原单位根，则 $\gcd(k,m)=m/d$。</p>
+</blockquote>
+<h4 id="Lemma-3">Lemma 3</h4>
+<blockquote>
+<p>很平凡的事实。</p>
+<p>对于 $k\in \mathbb{N}^*$，有<br>
+$$\sum_{i=0}^{km-1}f\left(\omega_m^{i}\right)=k\sum_{i=0}^{m-1}f\left(\omega_m^{i}\right)$$<br>
+对任意函数 $f$ 总是成立。</p>
+</blockquote>
+<h4 id="Lemma-4">Lemma 4</h4>
+<blockquote>
+<p>对于 $M\in\mathbb{Z}$，有<br>
+$$\frac{1}{m}\sum_{i=0}^{m-1}\omega_m^{Mi}=[m\mid M]$$</p>
+<p>即广为人知的单位根反演。</p>
+</blockquote>
+<p>上述引理读者自证不难。</p>
+<p>设 $\xi=\omega_m^{k}$ 是 $d$ 次本原单位根，必然有 $d\mid m$，尝试计算</p>
+<p>$$\begin{align*}<br>
+F(\xi,y)&amp;=\exp\left(\sum_{i=0}^{nm-1}\ln\left(1+\xi^i y\right)\right)\<br>
+&amp;=\exp\left(n\sum_{i=0}^{m-1}\ln\left(1+\xi^i y\right)\right)\<br>
+&amp;=\exp\left(n\sum_{i=0}^{m-1}\sum_{j=1}^{+\infty}\frac{(-1)^{j-1}}{j} \left(\xi^i y\right)^j\right)\<br>
+&amp;=\exp\left(n\sum_{j=1}^{+\infty}\frac{(-1)^{j-1}y^j}{j}\sum_{i=0}^{m-1}\xi^{ij}\right)\<br>
+&amp;=\exp\left(n\sum_{j=1}^{+\infty}\frac{(-1)^{j-1}y^j}{j}\cdot\frac{m}{d}\sum_{i=0}^{d-1}\xi^{ij}\right)\<br>
+&amp;\color{red}=\exp\left(nm\sum_{j=1}^{+\infty}\frac{(-1)^{j-1}y^j}{j}[d\mid j]\right)\<br>
+&amp;=\exp\left(nm\sum_{j=1}^{+\infty}\frac{(-1)^{dj-1}y^{dj}}{dj}\right)\<br>
+&amp;=\exp\left(\frac{nm}{d}\sum_{j=1}^{+\infty}\frac{(-1)^{j-1}}{j}\left(-(-y)^d\right)^j\right)\<br>
+&amp;=\exp\left(\frac{nm}{d}\ln\left(1-(-y)^d\right)\right)\<br>
+&amp;=\left(1-(-y)^d\right)^{nm/d}<br>
+\end{align*}$$</p>
+<p>上式几乎所有步骤都是平凡的，标红的步骤使用了单位根反演。</p>
+<p>应用最小多项式已经做完了，然而假设读者不了解代数理论。</p>
+<p>注意到如果将 $y$ 视为参数，上式给出了多项式 $G(x;y)$ 的 $m$ 个点值。</p>
+<p>考虑类似插值的方法，有</p>
+<p>$$G(x;y)=\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}G_d(x)$$</p>
+<p>其中，当 $x=\omega_m^k$ 时，要求 $G_d(x)$ 指示 $x$ 是否为 $d$ 次本原单位根。</p>
+<p>令</p>
+<p>$$G_d(x)=\frac{1}{m}\sum_{\gcd(i,m)=m/d}\sum_{j=0}^{m-1}(\omega_m^i x)^j$$</p>
+<p>为什么是对的？</p>
+<p>代入 $x=\omega_m^k$，有</p>
+<p>$$\begin{align*} G_d\left(\omega_m^k\right)<br>
+&amp;=\frac{1}{m}\sum_{\gcd(i,m)=m/d}\sum_{j=0}^{m-1}\left(\omega_m^{k+i}\right)^j\<br>
+&amp;=\sum_{\gcd(i,m)=m/d}[m\mid k+i]\<br>
+&amp;=\sum_{\gcd(m-i,m)=m/d}[m\mid k-i]\<br>
+&amp;=\sum_{\gcd(i,m)=m/d}[k=i]\<br>
+&amp;=\left[\gcd(k,m)=\frac{m}{d}\right]<br>
+\end{align*}$$</p>
+<h4 id="Lemma-5">Lemma 5</h4>
+<blockquote>
+<p>所有 $d$ 次本原单位根的总个数为 $\varphi(d)$，即数论中的 Euler 函数。</p>
+<p>所有 $d$ 次本原单位根之和为 $\mu(d)$，即数论中的 Möbius 函数。</p>
+</blockquote>
+<h4 id="Lemma-6">Lemma 6</h4>
+<blockquote>
+<p>对于 $k\in \mathbb{N}$，所有 $d$ 次本原单位根的 $k$ 次幂之和为</p>
+<p>$$H(d,k)=\frac{\mu\left(\frac{d}{\gcd(d,k)}\right)\varphi(d)}{\varphi\left(\frac{d}{\gcd(d,k)}\right)}$$</p>
+<p>利用 Lemma 5 可以证明。</p>
+</blockquote>
+<p>终于可以提取系数了！</p>
+<p>$$\begin{align*}<br>
+[x^r]G(x;y)<br>
+&amp;=\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}[x^r]G_d(x)\<br>
+&amp;=\frac{1}{m}\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}\sum_{\gcd(i,m)=m/d}\omega_m^{ir}\<br>
+&amp;=\frac{1}{m}\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}H(d,r)<br>
+\end{align*}$$</p>
+<p>从而得到</p>
+<p>$$\begin{align*}<br>
+[x^ry^s]G(x,y)<br>
+&amp;=[y^s]\frac{1}{m}\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}H(d,r)\<br>
+&amp;=\frac{1}{m}\sum_{d\mid \gcd(s,m)}[y^s]\sum_{i=0}^{nm/d}\binom{nm/d}{i}\left(-(-y)^d\right)^{i}H(d,r)\<br>
+&amp;=\frac{1}{m}\sum_{d\mid \gcd(s,m)}\binom{nm/d}{s/d}(-1)^{s+s/d}H(d,r)<br>
+\end{align*}$$</p>
+<h3 id="Problem-2">Problem 2</h3>
+<blockquote>
+<p>设多重集 $A={0^n,1^n,2^n,\cdots,(m-1)^n}$，对 $A$ 的 $s$ 元子集计数，使得元素和模 $m$ 为 $r$。</p>
+</blockquote>
+<p>不难发现 P2 与 P1 类似，留作读者练习。</p>
+<h3 id="Problem-3">Problem 3</h3>
+<blockquote>
+<p>这里应当有个 idea，本来想出联考题，害怕被骂，那就算了。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/combinatorics/" rel="tag"># combinatorics</a>
+              <a href="/tags/polynomial/" rel="tag"># polynomial</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/08/01/%E9%81%97%E4%BA%A7-1/" rel="prev" title="遗产 #1 - 感受那股劲">
+                  <i class="fa fa-angle-left"></i> 遗产 #1 - 感受那股劲
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">IceKylin</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
