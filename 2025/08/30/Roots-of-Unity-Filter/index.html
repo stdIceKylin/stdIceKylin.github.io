@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Under the Gun">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-05T08:18:54.355Z">
+<meta property="article:modified_time" content="2025-09-05T08:42:41.637Z">
 <meta property="article:author" content="IceKylin">
 <meta property="article:tag" content="combinatorics">
 <meta property="article:tag" content="polynomial">
@@ -220,7 +220,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-09-05 16:18:54" itemprop="dateModified" datetime="2025-09-05T16:18:54+08:00">2025-09-05</time>
+      <time title="Modified: 2025-09-05 16:42:41" itemprop="dateModified" datetime="2025-09-05T16:42:41+08:00">2025-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -390,22 +390,22 @@ class="math inline">\(k\)</span> 次幂之和，有</p>
 R_m^*}\omega^k=\frac{\mu\left(\frac{m}{\gcd(m,k)}\right)\varphi(m)}{\varphi\left(\frac{m}{\gcd(m,k)}\right)}\]</span></p>
 </blockquote>
 <p>终于可以提取系数了！</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{align}
 [x^r]G(x;y)
 &amp;=\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}[x^r]G_d(x)\\
 &amp;=\frac{1}{m}\sum_{d\mid
 m}\left(1-(-y)^d\right)^{nm/d}\sum_{\gcd(i,m)=m/d}\omega_m^{ir}\\
 &amp;=\frac{1}{m}\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}c_d(r)
-\end{aligned}\]</span></p>
+\end{align}\]</span></p>
 <p>从而得到</p>
-<p><span class="math display">\[\begin{aligned}
-[x^ry^s]G(x,y)
+<p><span class="math display">\[\begin{align*}
+[x^r y^s]G(x,y)
 &amp;=[y^s]\frac{1}{m}\sum_{d\mid m}\left(1-(-y)^d\right)^{nm/d}c_d(r)\\
 &amp;=\frac{1}{m}\sum_{d\mid
 \gcd(s,m)}[y^s]\sum_{i=0}^{nm/d}\binom{nm/d}{i}\left(-(-y)^d\right)^{i}c_d(r)\\
 &amp;=\frac{1}{m}\sum_{d\mid
 \gcd(s,m)}\binom{nm/d}{s/d}(-1)^{s+s/d}c_d(r)
-\end{aligned}\]</span></p>
+\end{align*}\]</span></p>
 <h3 id="exercise">4. Exercise</h3>
 <blockquote>
 <p>设多重集 <span
