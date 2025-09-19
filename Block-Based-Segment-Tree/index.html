@@ -19,22 +19,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Under the Gun">
-<meta property="og:url" content="http://example.com/archives/2025/08/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="底层分块线段树">
+<meta property="og:url" content="http://example.com/Block-Based-Segment-Tree/index.html">
 <meta property="og:site_name" content="Under the Gun">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-09-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-09-19T10:38:23.589Z">
 <meta property="article:author" content="IceKylin">
+<meta property="article:tag" content="data structures">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/archives/2025/08/">
+<link rel="canonical" href="http://example.com/Block-Based-Segment-Tree/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"archives/2025/08/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/Block-Based-Segment-Tree/","path":"Block-Based-Segment-Tree/","title":"底层分块线段树"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Archive | Under the Gun</title>
+<title>底层分块线段树 | Under the Gun</title>
   
 
 
@@ -90,7 +93,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Under the Gun</h1>
+      <p class="site-title">Under the Gun</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -116,7 +119,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -129,6 +132,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex.-1-%E5%8D%A1%E7%A9%BA%E9%97%B4"><span class="nav-text">Ex. 1 卡空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex.-2-%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4-bitset-%E4%BF%A1%E6%81%AF"><span class="nav-text">Ex. 2 维护区间 bitset
+信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex.-3-%E5%B9%B3%E8%A1%A1%E5%A4%8D%E6%9D%82%E5%BA%A6-%E5%B8%B8%E6%95%B0"><span class="nav-text">Ex. 3 平衡复杂度 &#x2F; 常数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,89 +173,128 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 9 posts in total. Keep on posting.</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/Block-Based-Segment-Tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="IceKylin">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Under the Gun">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="底层分块线段树 | Under the Gun">
+      <meta itemprop="description" content=" ">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          底层分块线段树
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2025<span class="collection-year-count">9</span></span>
+
+      <time title="Created: 2025-09-19 00:00:00 / Modified: 18:38:23" itemprop="dateCreated datePublished" datetime="2025-09-19T00:00:00+08:00">2025-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%90%86%E6%80%A7%E6%84%89%E6%82%A6/" itemprop="url" rel="index"><span itemprop="name">理性愉悦</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description"> </div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>实现部分是容易的，可以序列分块后建线段树，也可以限制线段树的最大深度。</p>
+<p>这有啥用？</p>
+<h3 id="ex.-1-卡空间">Ex. 1 卡空间</h3>
+<p>假设你需要维护很多个线段树。假设合并信息是 <span
+class="math inline">\(\mathcal{O}(1)\)</span> 的。</p>
+<p>那么底层按 <span class="math inline">\(B=\mathcal{O}(\log n)\)</span>
+分块后，时间复杂度不变，空间复杂度变为原来的 <span
+class="math inline">\(1/B\)</span>。</p>
+<p>注意，这样做需要存储原序列。</p>
+<h3 id="ex.-2-维护区间-bitset-信息">Ex. 2 维护区间 <code>bitset</code>
+信息</h3>
+<p>假设你需要维护序列，支持模 <span class="math inline">\(V\)</span>
+意义下区间加，查询区间 <code>bitset</code> 信息。假设 <span
+class="math inline">\(n,V\)</span> 同阶。</p>
+<p>注意到修改操作其实是区间 <code>bitset</code> 位移。</p>
+<p>直接使用线段树比暴力还劣，而使用底层分块线段树可以做到单次操作 <span
+class="math inline">\(\mathcal{O}\left(\dfrac{V\log
+w}{w}\right)\)</span>。</p>
+<p>具体内容参考 <a
+target="_blank" rel="noopener" href="https://stdicekylin.github.io/P11381-Solution/">recall
+题解</a>。</p>
+<h3 id="ex.-3-平衡复杂度-常数">Ex. 3 平衡复杂度 / 常数</h3>
+<p>维护区间 <code>bitset</code> 信息是一个特例，考虑更一般的情况。</p>
+<p>当修改和查询不平衡（可能是复杂度，也可能是操作次数），或者合并信息比较麻烦的时候，底层分块往往有奇效，运气好甚至能除掉一个
+<span class="math inline">\(\log\log n\)</span>。</p>
+<p>参考 <a target="_blank" rel="noopener" href="https://qoj.ac/problem/8035">Call Me Call
+Me</a>，目前笔者的底层分块做法是最优解。</p>
+<p>以及某几个 Ynoi 题可以（或者必须？）这样做，有空再写。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-08-30T00:00:00+08:00"
-              content="2025-08-30">
-          08-30
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/Roots-of-Unity-Filter-Pro/" itemprop="url">
-            <span itemprop="name">更强的单位根方法</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-structures/" rel="tag"># data structures</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Zhongkao/" rel="prev" title="中考游记">
+                  <i class="fa fa-angle-left"></i> 中考游记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-08-03T00:00:00+08:00"
-              content="2025-08-03">
-          08-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Open-Your-Mind/" itemprop="url">
-            <span itemprop="name">Open Your Mind</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-08-01T00:00:00+08:00"
-              content="2025-08-01">
-          08-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Feel-the-Power/" itemprop="url">
-            <span itemprop="name">感受那股劲！</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>
