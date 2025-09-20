@@ -25,7 +25,7 @@
 <meta property="og:site_name" content="Under the Gun">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-09-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-19T10:38:23.589Z">
+<meta property="article:modified_time" content="2025-09-19T23:34:56.747Z">
 <meta property="article:author" content="IceKylin">
 <meta property="article:tag" content="data structures">
 <meta name="twitter:card" content="summary">
@@ -132,8 +132,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex.-1-%E5%8D%A1%E7%A9%BA%E9%97%B4"><span class="nav-text">Ex. 1 卡空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex.-2-%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4-bitset-%E4%BF%A1%E6%81%AF"><span class="nav-text">Ex. 2 维护区间 bitset
-信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ex.-3-%E5%B9%B3%E8%A1%A1%E5%A4%8D%E6%9D%82%E5%BA%A6-%E5%B8%B8%E6%95%B0"><span class="nav-text">Ex. 3 平衡复杂度 &#x2F; 常数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ex.-1-%E5%8D%A1%E7%A9%BA%E9%97%B4"><span class="nav-text">Ex. 1 卡空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%B4%E6%8A%A4%E5%8C%BA%E9%97%B4-bitset-%E4%BF%A1%E6%81%AF"><span class="nav-text">维护区间 bitset 信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E5%A4%8D%E6%9D%82%E5%BA%A6-%E5%B8%B8%E6%95%B0"><span class="nav-text">平衡复杂度 &#x2F; 常数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -146,7 +145,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -157,7 +156,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -212,9 +211,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2025-09-19 00:00:00 / Modified: 18:38:23" itemprop="dateCreated datePublished" datetime="2025-09-19T00:00:00+08:00">2025-09-19</time>
+      <time title="Created: 2025-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2025-09-19T00:00:00+08:00">2025-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2025-09-20 07:34:56" itemprop="dateModified" datetime="2025-09-20T07:34:56+08:00">2025-09-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,15 +243,14 @@
     
     <div class="post-body" itemprop="articleBody"><p>实现部分是容易的，可以序列分块后建线段树，也可以限制线段树的最大深度。</p>
 <p>这有啥用？</p>
-<h3 id="ex.-1-卡空间">Ex. 1 卡空间</h3>
+<h4 id="ex.-1-卡空间">Ex. 1 卡空间</h4>
 <p>假设你需要维护很多个线段树。假设合并信息是 <span
 class="math inline">\(\mathcal{O}(1)\)</span> 的。</p>
 <p>那么底层按 <span class="math inline">\(B=\mathcal{O}(\log n)\)</span>
 分块后，时间复杂度不变，空间复杂度变为原来的 <span
 class="math inline">\(1/B\)</span>。</p>
 <p>注意，这样做需要存储原序列。</p>
-<h3 id="ex.-2-维护区间-bitset-信息">Ex. 2 维护区间 <code>bitset</code>
-信息</h3>
+<h4 id="维护区间-bitset-信息">维护区间 <code>bitset</code> 信息</h4>
 <p>假设你需要维护序列，支持模 <span class="math inline">\(V\)</span>
 意义下区间加，查询区间 <code>bitset</code> 信息。假设 <span
 class="math inline">\(n,V\)</span> 同阶。</p>
@@ -257,7 +261,7 @@ w}{w}\right)\)</span>。</p>
 <p>具体内容参考 <a
 target="_blank" rel="noopener" href="https://stdicekylin.github.io/P11381-Solution/">recall
 题解</a>。</p>
-<h3 id="ex.-3-平衡复杂度-常数">Ex. 3 平衡复杂度 / 常数</h3>
+<h4 id="平衡复杂度-常数">平衡复杂度 / 常数</h4>
 <p>维护区间 <code>bitset</code> 信息是一个特例，考虑更一般的情况。</p>
 <p>当修改和查询不平衡（可能是复杂度，也可能是操作次数），或者合并信息比较麻烦的时候，底层分块往往有奇效，运气好甚至能除掉一个
 <span class="math inline">\(\log\log n\)</span>。</p>
@@ -285,6 +289,9 @@ Me</a>，目前笔者的底层分块做法是最优解。</p>
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/Tips-for-Optimization/" rel="next" title="关于常数优化的一些建议">
+                  关于常数优化的一些建议 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
